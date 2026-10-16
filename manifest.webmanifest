@@ -1,0 +1,12 @@
+{
+  "name": "Meu Planner",
+  "short_name": "Planner",
+  "description": "Planner pessoal para organizar tarefas, hábitos, metas, listas e finanças.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAF9FD",
+  "theme_color": "#D9C8FF",
+  "lang": "pt-BR",
+  "icons": []
+}
