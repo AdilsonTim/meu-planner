@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#D9C8FF">
+  <meta name="description" content="Planner Digital para organizar tarefas, hábitos, metas, listas e finanças.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  
+  <title>Meu Planner</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+:root{--blue:#BBD8FF;--blue-ink:#345D9D;--pink:#F6C4D8;--pink-ink:#A44772;--lilac:#D9C8FF;--lilac-ink:#6849A5;--green:#DDF1EA;--green-ink:#347C67;--white:#fff;--bg:#FAF9FD;--ink:#39334A;--muted:#817B8D;--line:#EAE6F0;--shadow:0 8px 28px rgba(68,50,100,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #AFA0E8;outline-offset:2px}.hidden{display:none!important}.muted,.small{color:var(--muted)}.small{font-size:.78rem}.auth-wrap{min-height:100svh;display:grid;place-items:center;padding:22px;background:linear-gradient(150deg,#EDF5FF,#FFF4F8 52%,#F2ECFF)}.auth-card{width:min(100%,420px);background:#fff;border:1px solid #eee8f5;border-radius:28px;padding:28px;box-shadow:var(--shadow)}.brand-mark{width:48px;height:48px;display:grid;place-items:center;background:var(--lilac);border-radius:16px;color:var(--lilac-ink);font-size:28px}.auth-card h1{margin:14px 0 2px}.auth-card>p{margin-top:4px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:.88rem;font-weight:800}.field input,.field select,.toolbar input,.toolbar select{width:100%;min-width:0;border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;color:var(--ink)}.auth-actions,.form-actions{display:flex;gap:10px;margin-top:18px}.auth-actions>* ,.form-actions>*{flex:1}.primary,.secondary{border:0;border-radius:12px;padding:12px 16px;font-weight:800}.primary{background:var(--lilac-ink);color:#fff}.secondary{background:#F0ECF8;color:var(--lilac-ink)}.link-btn,.text-btn{border:0;background:transparent;color:var(--lilac-ink);font-weight:800;padding:10px 0}.message{font-size:.9rem;min-height:1.2em}.app-shell{max-width:760px;margin:auto;min-height:100svh;padding-bottom:90px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 20px 14px}.topbar h1{margin:0;font-size:1.55rem}.eyebrow{font-size:.67rem;letter-spacing:.12em;color:var(--muted);font-weight:800;margin:0 0 4px}.heart{color:var(--pink-ink)}main{padding:0 16px}.view{animation:appear .18s ease}@keyframes appear{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:none}}.welcome-panel{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(110deg,#E3EEFF,#F3E9FF);border-radius:22px;padding:20px;margin:4px 0 18px}.welcome-panel h2{margin:3px 0 0}.welcome-panel p{margin:0}.round-btn,.icon-btn,.back-btn,.add-btn{border:0;display:grid;place-items:center}.round-btn{width:44px;height:44px;border-radius:15px;background:#fff;color:var(--blue-ink);font-size:24px}.module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.module-card{border:1px solid rgba(75,60,100,.06);border-radius:20px;padding:16px;min-height:136px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:7px;color:var(--ink);box-shadow:0 4px 15px rgba(68,50,100,.03)}.module-card>span:nth-child(2){font-size:1.03rem;font-weight:800}.module-card small{color:#70697E;font-size:.76rem}.module-icon{font-size:1.55rem}.blue{background:#E5F0FF}.lilac{background:#EEE7FF}.purple{background:#E5DFFF}.green{background:#E3F4EE}.pink{background:#FCE7F0}.white{background:#fff}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin-top:16px;box-shadow:0 3px 12px rgba(68,50,100,.025)}.section-heading,.view-heading{display:flex;align-items:center;gap:12px}.section-heading{justify-content:space-between}.section-heading h2,.view-heading h2{margin:0;font-size:1.25rem}.view-heading{margin:8px 0 18px}.view-heading>div{flex:1}.back-btn{background:#fff;border:1px solid var(--line);border-radius:12px;width:42px;height:42px;font-size:28px;color:var(--lilac-ink)}.add-btn{width:44px;height:44px;border-radius:15px;background:var(--lilac-ink);color:#fff;font-size:28px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.summary-box{background:#F8F6FC;border-radius:14px;padding:12px}.summary-box strong{display:block;font-size:1.25rem}.summary-box span{font-size:.72rem;color:var(--muted)}.form-panel h3{margin:0 0 8px}.two-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.form-actions{justify-content:flex-end}.form-actions button{flex:initial}.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.item-list{display:grid;gap:10px;margin-top:12px}.item-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px;display:flex;gap:12px;align-items:flex-start}.item-main{flex:1;min-width:0}.item-title{font-weight:800;overflow-wrap:anywhere}.item-meta{font-size:.78rem;color:var(--muted);margin-top:4px}.item-actions{display:flex;gap:5px;align-items:center}.tiny-btn{border:0;background:#F3F0F8;color:var(--lilac-ink);border-radius:10px;padding:8px;font-weight:800}.check-btn{width:28px;height:28px;border:1px solid #CFC7DD;border-radius:9px;background:#fff;color:var(--green-ink)}.check-btn.checked{background:var(--green);border-color:var(--green-ink)}.badge{display:inline-flex;border-radius:99px;padding:4px 8px;background:#F0ECF8;color:var(--lilac-ink);font-size:.7rem;font-weight:800;margin-top:6px}.badge.priority{background:#FFF0D4;color:#8B6418}.weekday-picker{display:flex;flex-wrap:wrap;gap:8px}.weekday-picker label{background:#F6F2FC;border-radius:10px;padding:8px;font-size:.8rem}.weekday-picker input{accent-color:var(--lilac-ink)}.goal-status{border:0;border-radius:10px;padding:7px;background:#F2EEFA;color:var(--lilac-ink);font:inherit;font-size:.78rem}.history{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}.history p{margin:5px 0}.list-item-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #F0EDF4}.list-item-row input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:9px;padding:9px}.list-item-row label{flex:1;overflow-wrap:anywhere}.finance-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.finance-card{padding:14px;border-radius:16px}.finance-card small{display:block;color:#716A7C}.finance-card strong{display:block;margin-top:4px;font-size:1.12rem;overflow-wrap:anywhere}.finance-card:last-child{grid-column:1/-1}.calendar-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.calendar-heading h3{margin:0;text-align:center}.icon-btn{width:38px;height:38px;border-radius:12px;background:#F2EEFA;color:var(--lilac-ink);font-size:24px}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:15px}.weekday{font-size:.7rem;color:var(--muted);text-align:center;font-weight:800;padding:6px 0}.calendar-day{border:0;background:#fff;border-radius:12px;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--ink);font-size:.86rem}.calendar-day.selected{outline:2px solid var(--lilac-ink);background:#F5F0FF}.calendar-day.today{font-weight:900}.calendar-day .dot{height:7px;width:7px;border-radius:50%;background:#E4DFEC}.calendar-day .dot.partial{background:conic-gradient(var(--lilac-ink) var(--progress),#E4DFEC 0)}.calendar-day .dot.full{background:var(--lilac-ink)}.daily-section{margin-top:15px}.daily-section h4{margin:0 0 8px}.daily-row{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #F1EEF5}.daily-row:last-child{border-bottom:0}.daily-row .grow{flex:1;min-width:0}.daily-row small{display:block;color:var(--muted);font-size:.75rem}.habit-state{border:1px solid var(--line);border-radius:10px;padding:7px;background:#fff;color:var(--ink);max-width:100%;font-size:.75rem}.empty-state{text-align:center;padding:28px 14px;color:var(--muted);background:#fff;border:1px dashed #DDD6E8;border-radius:16px}.empty-state strong{display:block;color:var(--ink);margin-bottom:5px}.bottom-nav{position:fixed;z-index:5;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,760px);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.bottom-nav button{border:0;background:transparent;color:#91899E;display:grid;gap:3px;justify-items:center;padding:5px}.bottom-nav button span{font-size:1.25rem}.bottom-nav button small{font-size:.68rem}.bottom-nav button.active{color:var(--lilac-ink);font-weight:900}.toast{position:fixed;z-index:10;bottom:90px;left:50%;transform:translateX(-50%);background:#39334A;color:#fff;border-radius:12px;padding:12px 16px;max-width:calc(100% - 32px);box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}.muted-note{color:var(--muted);font-size:.8rem;text-align:center;padding:18px 8px}
+@media(min-width:600px){main{padding:0 22px}.module-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.module-card{min-height:150px}.topbar{padding-inline:24px}.calendar-day{min-height:60px}}
+@media(max-width:380px){.module-grid{gap:8px}.module-card{padding:12px;min-height:126px}.module-card small{font-size:.7rem}.panel{padding:13px}.two-cols{gap:7px}.finance-card strong{font-size:1rem}}
+
+</style>
+</head>
+<body>
+  <div id="auth-screen" class="auth-wrap">
+    <section class="auth-card">
+      <div class="brand-mark">✦</div>
+      <h1>Meu Planner</h1>
+      <p class="muted">Seu espaço, sua organização ♡</p>
+      <div class="field">
+        <label for="auth-email">E-mail</label>
+        <input id="auth-email" type="email" autocomplete="email" placeholder="voce@exemplo.com">
+      </div>
+      <div class="field">
+        <label for="auth-password">Senha</label>
+        <input id="auth-password" type="password" autocomplete="current-password" placeholder="Sua senha">
+      </div>
+      <div class="auth-actions">
+        <button id="login-btn" class="primary">Entrar</button>
+        <button id="signup-btn" class="secondary">Criar conta</button>
+      </div>
+      <button id="reset-btn" class="link-btn">Esqueci minha senha</button>
+      <button id="guest-btn" class="secondary hidden" type="button">Continuar sem login</button>
+      <p id="auth-message" class="message" role="status"></p>
+      <p class="small muted">Protótipo: configure o Supabase para habilitar contas e sincronização online.</p>
+    </section>
+  </div>
+
+  <div id="app-screen" class="app-shell hidden">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SEU ESPAÇO, SUA ORGANIZAÇÃO</p>
+        <h1>Meu Planner <span class="heart">♡</span></h1>
+      </div>
+      <button id="logout-btn" class="icon-btn" aria-label="Sair" title="Sair">↗</button>
+    </header>
+
+    <main>
+      <section id="home-view" class="view">
+        <div class="welcome-panel">
+          <div>
+            <p class="muted">Olá! Vamos organizar o seu dia?</p>
+            <h2 id="today-label">Hoje</h2>
+          </div>
+          <button class="round-btn" data-view="calendar" aria-label="Abrir calendário">▦</button>
+        </div>
+        <div class="module-grid">
+          <button class="module-card blue" data-view="tasks"><span class="module-icon">☑</span><span>Tarefas</span><small>Organize suas atividades</small></button>
+          <button class="module-card lilac" data-view="habits"><span class="module-icon">◌</span><span>Hábitos</span><small>Acompanhe sua rotina</small></button>
+          <button class="module-card purple" data-view="goals"><span class="module-icon">◎</span><span>Metas</span><small>Acompanhe seus objetivos</small></button>
+          <button class="module-card green" data-view="finance"><span class="module-icon">＄</span><span>Financeiro</span><small>Receitas e despesas</small></button>
+          <button class="module-card pink" data-view="lists"><span class="module-icon">☷</span><span>Listas</span><small>Crie listas variadas</small></button>
+          <button class="module-card white" data-view="calendar"><span class="module-icon">▦</span><span>Diário e Calendário</span><small>Consulte seus dias</small></button>
+          <button class="module-card lilac" data-view="settings"><span class="module-icon">⚙</span><span>Configurações</span><small>Preferências de acesso</small></button>
+        </div>
+        <section class="panel">
+          <div class="section-heading"><h2>Resumo de hoje</h2><button class="text-btn" data-view="calendar">Ver dia</button></div>
+          <div id="today-summary" class="summary-grid"></div>
+        </section>
+      </section>
+
+      <section id="tasks-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">ORGANIZAÇÃO</p><h2>Tarefas</h2></div><button id="add-task" class="add-btn" aria-label="Adicionar tarefa">＋</button></div>
+        <form id="task-form" class="panel form-panel hidden">
+          <h3 id="task-form-title">Nova tarefa</h3>
+          <input type="hidden" id="task-id">
+          <div class="field"><label for="task-name">Tarefa *</label><input id="task-name" required maxlength="160" placeholder="O que você precisa fazer?"></div>
+          <div class="two-cols">
+            <div class="field"><label for="task-date">Data</label><input id="task-date" type="date" required></div>
+            <div class="field"><label for="task-time">Horário (opcional)</label><input id="task-time" type="time"></div>
+          </div>
+          <div class="two-cols">
+            <div class="field"><label for="task-category">Categoria</label><select id="task-category"><option>Pessoal</option><option>Profissional</option><option>Evolução pessoal</option><option>Autocuidado</option><option>Acadêmico</option><option>Outro</option></select></div>
+            <div class="field"><label for="task-priority">Prioridade</label><select id="task-priority"><option value="nao">Não</option><option value="sim">Sim</option></select></div>
+          </div>
+          <div class="form-actions"><button type="button" class="secondary cancel-form">Cancelar</button><button class="primary">Salvar tarefa</button></div>
+        </form>
+        <div class="toolbar"><input id="task-filter-date" type="date" aria-label="Filtrar tarefas por data"><select id="task-filter-status" aria-label="Filtrar tarefas"><option value="all">Todas</option><option value="pending">Pendentes</option><option value="done">Concluídas</option></select></div>
+        <div id="task-list" class="item-list"></div>
+      </section>
+
+      <section id="habits-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">ROTINA</p><h2>Hábitos</h2></div><button id="add-habit" class="add-btn" aria-label="Adicionar hábito">＋</button></div>
+        <form id="habit-form" class="panel form-panel hidden">
+          <h3>Novo hábito</h3>
+          <div class="field"><label for="habit-name">Hábito *</label><input id="habit-name" required maxlength="120" placeholder="Ex.: Ler 20 minutos"></div>
+          <div class="field"><label for="habit-frequency">Frequência</label><select id="habit-frequency"><option value="daily">Todos os dias</option><option value="weekdays">Dias específicos da semana</option><option value="dates">Datas selecionadas</option></select></div>
+          <div id="habit-weekdays" class="field hidden"><label>Dias da semana</label><div class="weekday-picker">
+            <label><input type="checkbox" value="1"> Seg</label><label><input type="checkbox" value="2"> Ter</label><label><input type="checkbox" value="3"> Qua</label><label><input type="checkbox" value="4"> Qui</label><label><input type="checkbox" value="5"> Sex</label><label><input type="checkbox" value="6"> Sáb</label><label><input type="checkbox" value="0"> Dom</label>
+          </div></div>
+          <div id="habit-dates-wrap" class="field hidden"><label for="habit-dates">Datas selecionadas (separadas por vírgula, AAAA-MM-DD)</label><input id="habit-dates" placeholder="2026-10-15, 2026-10-22"></div>
+          <div class="form-actions"><button type="button" class="secondary cancel-form">Cancelar</button><button class="primary">Salvar hábito</button></div>
+        </form>
+        <div class="toolbar"><input id="habit-date" type="date" aria-label="Data dos hábitos"></div>
+        <div id="habit-list" class="item-list"></div>
+      </section>
+
+      <section id="goals-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">OBJETIVOS</p><h2>Metas</h2></div><button id="add-goal" class="add-btn" aria-label="Adicionar meta">＋</button></div>
+        <form id="goal-form" class="panel form-panel hidden">
+          <h3>Nova meta</h3>
+          <div class="field"><label for="goal-name">Meta *</label><input id="goal-name" required maxlength="180" placeholder="O que você deseja alcançar?"></div>
+          <div class="field"><label for="goal-date">Data para realização</label><input id="goal-date" type="date"></div>
+          <div class="field"><label for="goal-status">Situação</label><select id="goal-status"><option>Não iniciada</option><option>Em andamento</option><option>Realizada</option></select></div>
+          <div class="form-actions"><button type="button" class="secondary cancel-form">Cancelar</button><button class="primary">Salvar meta</button></div>
+        </form>
+        <div id="goal-list" class="item-list"></div>
+      </section>
+
+      <section id="lists-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">ANOTAÇÕES</p><h2>Listas</h2></div><button id="add-list" class="add-btn" aria-label="Criar lista">＋</button></div>
+        <form id="list-form" class="panel form-panel hidden">
+          <h3>Nova lista</h3>
+          <div class="field"><label for="list-name">Nome da lista *</label><input id="list-name" required maxlength="100" placeholder="Ex.: Compras, livros, viagem..."></div>
+          <div class="form-actions"><button type="button" class="secondary cancel-form">Cancelar</button><button class="primary">Criar lista</button></div>
+        </form>
+        <div id="list-list" class="item-list"></div>
+      </section>
+
+      <section id="finance-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">CONTROLE FINANCEIRO</p><h2>Financeiro</h2></div><button id="add-transaction" class="add-btn" aria-label="Adicionar movimentação">＋</button></div>
+        <div class="finance-cards">
+          <div class="finance-card blue"><small>Receitas</small><strong id="finance-income">R$ 0,00</strong></div>
+          <div class="finance-card pink"><small>Despesas</small><strong id="finance-expense">R$ 0,00</strong></div>
+          <div class="finance-card lilac"><small>Saldo do período</small><strong id="finance-balance">R$ 0,00</strong></div>
+        </div>
+        <form id="finance-form" class="panel form-panel hidden">
+          <h3>Nova movimentação</h3>
+          <div class="field"><label for="finance-type">Tipo</label><select id="finance-type"><option value="expense">Despesa</option><option value="income">Receita</option></select></div>
+          <div class="field"><label for="finance-description">Descrição *</label><input id="finance-description" required maxlength="140" placeholder="Ex.: Mercado"></div>
+          <div class="two-cols"><div class="field"><label for="finance-amount">Valor (R$) *</label><input id="finance-amount" required type="number" min="0.01" step="0.01" inputmode="decimal"></div><div class="field"><label for="finance-date">Data</label><input id="finance-date" required type="date"></div></div>
+          <div class="field"><label for="finance-category">Categoria</label><input id="finance-category" maxlength="80" placeholder="Ex.: Alimentação"></div>
+          <div class="form-actions"><button type="button" class="secondary cancel-form">Cancelar</button><button class="primary">Salvar movimentação</button></div>
+        </form>
+        <div class="toolbar"><input id="finance-month" type="month" aria-label="Mês financeiro"></div>
+        <div id="finance-list" class="item-list"></div>
+      </section>
+
+      <section id="calendar-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">CONSULTAS</p><h2>Diário e Calendário</h2></div></div>
+        <section class="panel calendar-panel">
+          <div class="calendar-heading"><button id="month-prev" class="icon-btn" aria-label="Mês anterior">‹</button><h3 id="month-label"></h3><button id="month-next" class="icon-btn" aria-label="Próximo mês">›</button></div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <p class="small muted">Os círculos indicam a proporção de hábitos realizados nos dias programados.</p>
+        </section>
+        <section class="panel">
+          <div class="calendar-heading"><button id="day-prev" class="icon-btn" aria-label="Dia anterior">‹</button><div><p class="eyebrow">CONSULTA DIÁRIA</p><h3 id="selected-date-label"></h3></div><button id="day-next" class="icon-btn" aria-label="Dia seguinte">›</button></div>
+          <div id="daily-content"></div>
+        </section>
+      </section>
+
+      <section id="settings-view" class="view hidden">
+        <div class="view-heading"><button class="back-btn" data-view="home">‹</button><div><p class="eyebrow">PREFERÊNCIAS</p><h2>Configurações</h2></div></div>
+        <section class="panel">
+          <h3>Privacidade e acesso</h3>
+          <label style="display:flex;align-items:flex-start;gap:12px;margin:16px 0;font-weight:800">
+            <input id="require-login-toggle" type="checkbox" style="width:22px;height:22px;accent-color:var(--lilac-ink);flex-shrink:0;margin-top:2px">
+            <span>Exigir login para acessar o Planner<small class="muted" style="display:block;font-weight:500;margin-top:5px">Ativado por padrão. Quando desativado, o Planner abre sem conta e guarda os dados apenas neste aparelho.</small></span>
+          </label>
+          <p id="settings-access-message" class="small muted"></p>
+          <p class="small muted">Ao entrar na conta depois de usar o Planner sem login, o aplicativo poderá oferecer a importação dos dados locais. Faça a confirmação com cuidado para não misturar registros indesejados.</p>
+          <div class="form-actions"><button id="settings-save-btn" class="primary" type="button">Salvar preferência</button></div>
+        </section>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button data-view="home" class="active"><span>⌂</span><small>Início</small></button>
+      <button data-view="calendar"><span>▦</span><small>Calendário</small></button>
+      <button data-view="tasks"><span>☑</span><small>Tarefas</small></button>
+      <button data-view="habits"><span>◌</span><small>Hábitos</small></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+/* Meu Planner — protótipo inicial.
+   Para ativar autenticação/sincronização: preencha SUPABASE_URL e SUPABASE_ANON_KEY.
+   Sem configuração, os dados de demonstração ficam somente neste navegador. */
+const SUPABASE_URL = "https://wxhgqfnhsilqvaohkflh.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_jHwJDuCONawI7Ht7TFFBaA_0sKK7NCL";
+const hasSupabaseConfig = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
+const supabaseClient = hasSupabaseConfig ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+const $ = (id) => document.getElementById(id);
+const today = new Date();
+const localISO = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const parseISO = (s) => { const [y,m,d] = s.split('-').map(Number); return new Date(y,m-1,d); };
+const monthISO = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+const uid = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+const fmtDate = (s, opts={day:'2-digit',month:'long',year:'numeric',weekday:'long'}) => s ? parseISO(s).toLocaleDateString('pt-BR',opts) : 'Sem data';
+const money = (n) => Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const escapeHTML = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const initialState = () => ({tasks:[],habits:[],habitLogs:{},goals:[],lists:[],transactions:[]});
+let state = initialState(), currentUser = null, selectedDate = localISO(today), calendarMonth = new Date(today.getFullYear(),today.getMonth(),1), activeView='home', toastTimer;
+const REQUIRE_LOGIN_KEY='planner-require-login-v1';
+function requireLogin(){return localStorage.getItem(REQUIRE_LOGIN_KEY)!=='false';}
+function hasRecords(obj){return !!obj && ['tasks','habits','goals','lists','transactions'].some(k=>Array.isArray(obj[k])&&obj[k].length>0) || !!(obj?.habitLogs&&Object.keys(obj.habitLogs).length);}
+function mergeStates(base, extra){const merged={...initialState(),...(base||{})};for(const k of ['tasks','habits','goals','lists','transactions']){const a=Array.isArray(merged[k])?merged[k]:[], b=Array.isArray(extra?.[k])?extra[k]:[], ids=new Set(a.map(x=>x.id));merged[k]=[...a,...b.filter(x=>!ids.has(x.id))];}merged.habitLogs={...(merged.habitLogs||{}),...(extra?.habitLogs||{})};return merged;}
+function storageKey(){return currentUser ? `planner-v1-${currentUser.id}` : 'planner-v1-guest';}
+function loadLocal(){try{state={...initialState(),...JSON.parse(localStorage.getItem(storageKey())||'{}')};}catch{state=initialState();}}
+function saveLocal(){localStorage.setItem(storageKey(),JSON.stringify(state));}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2800);}
+function showAuthMessage(msg){$('auth-message').textContent=msg;}
+function showView(view){activeView=view;document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));$(`${view}-view`).classList.remove('hidden');document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='home')renderHome();if(view==='tasks')renderTasks();if(view==='habits')renderHabits();if(view==='goals')renderGoals();if(view==='lists')renderLists();if(view==='finance')renderFinance();if(view==='calendar')renderCalendar();if(view==='settings')renderSettings();window.scrollTo({top:0,behavior:'smooth'});}
+function showApp(){ $('auth-screen').classList.add('hidden');$('app-screen').classList.remove('hidden'); $('today-label').textContent=fmtDate(localISO(today),{day:'numeric',month:'long',year:'numeric'});showView('home'); }
+function showAuth(){ $('app-screen').classList.add('hidden');$('auth-screen').classList.remove('hidden');$('guest-btn').classList.toggle('hidden',requireLogin()); }
+function renderSettings(){ $('require-login-toggle').checked=requireLogin();$('settings-access-message').textContent=requireLogin()?'O acesso exige login.':'O acesso sem login está permitido; os dados ficam neste aparelho.'; }
+async function remoteAuth(action){const email=$('auth-email').value.trim(),password=$('auth-password').value;if(!email){showAuthMessage('Informe seu e-mail.');return;}if(action!=='reset'&&!password){showAuthMessage('Informe sua senha.');return;}if(!supabaseClient){if(action==='reset'){showAuthMessage('Configure o Supabase para habilitar recuperação de senha.');return;}if(action==='signup'&&password.length<6){showAuthMessage('Use uma senha com pelo menos 6 caracteres.');return;}if(action==='login'&&email==='demo@planner.local'&&password==='planner123'){currentUser={id:'demo',email};loadLocal();showApp();toast('Modo de demonstração: dados locais neste navegador.');return;}showAuthMessage('O Supabase ainda não foi configurado. Para testar localmente, use demo@planner.local / planner123.');return;}
+ try{let result;if(action==='signup')result=await supabaseClient.auth.signUp({email,password});else if(action==='login')result=await supabaseClient.auth.signInWithPassword({email,password});else result=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:location.href});if(result.error)throw result.error;if(action==='reset'){showAuthMessage('Se o e-mail estiver cadastrado, você receberá as instruções.');return;}if(action==='signup'&&!result.data.session){showAuthMessage('Conta criada. Verifique seu e-mail para confirmar o cadastro.');return;}currentUser=result.data.user;await loadRemote();showApp();}catch(e){showAuthMessage(e.message||'Não foi possível concluir a operação.');}}
+async function loadRemote(){
+ const guestRaw=localStorage.getItem('planner-v1-guest');let guestData=null;try{guestData=guestRaw?{...initialState(),...JSON.parse(guestRaw)}:null;}catch{}
+ loadLocal();if(!supabaseClient||!currentUser||currentUser.id==='demo')return;
+ try{
+  const {data,error}=await supabaseClient.from('planner_data').select('data').eq('user_id',currentUser.id).maybeSingle();if(error)throw error;
+  let remoteData=data?.data?{...initialState(),...data.data}:initialState();
+  if(hasRecords(guestData)){
+   if(confirm('Encontramos dados salvos neste aparelho sem login. Deseja importá-los para sua conta? Os registros existentes serão preservados e itens com o mesmo ID não serão duplicados.')){
+    remoteData=mergeStates(remoteData,guestData);state=remoteData;saveLocal();saveState();
+   } else {state=remoteData;saveLocal();}
+  } else {state=remoteData;saveLocal();}
+ }catch(e){toast('Não foi possível sincronizar: '+e.message);}
+}
+let saveQueue=Promise.resolve();
+function saveState(){saveLocal();if(!supabaseClient||!currentUser||currentUser.id==='demo')return;const snapshot=JSON.parse(JSON.stringify(state));saveQueue=saveQueue.then(async()=>{const {error}=await supabaseClient.from('planner_data').upsert({user_id:currentUser.id,data:snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;}).catch(e=>toast('Erro ao sincronizar. Verifique a conexão.'));}
+
+function empty(msg){return `<div class="empty-state"><strong>${escapeHTML(msg)}</strong><span>Use o botão + para adicionar um registro.</span></div>`;}
+function itemCard(title,meta,body='',actions=''){return `<article class="item-card"><div class="item-main"><div class="item-title">${title}</div><div class="item-meta">${meta||''}</div>${body}</div><div class="item-actions">${actions}</div></article>`;}
+function renderHome(){const d=selectedDate;const tasks=state.tasks.filter(t=>t.date===d);const done=tasks.filter(t=>t.done).length;const scheduled=state.habits.filter(h=>habitScheduled(h,d));const completed=scheduled.filter(h=>getHabitState(h.id,d)==='done').length;$('today-summary').innerHTML=`<div class="summary-box"><strong>${tasks.length}</strong><span>Tarefas</span></div><div class="summary-box"><strong>${completed}/${scheduled.length}</strong><span>Hábitos</span></div><div class="summary-box"><strong>${done}</strong><span>Concluídas</span></div>`;}
+function openForm(id){$(id).classList.remove('hidden');$(id).scrollIntoView({behavior:'smooth',block:'start'});}
+function closeForm(form){form.classList.add('hidden');form.reset();const hidden=form.querySelector('input[type=hidden]');if(hidden)hidden.value='';}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('.cancel-form').forEach(b=>b.addEventListener('click',()=>closeForm(b.closest('form'))));
+$('login-btn').addEventListener('click',()=>remoteAuth('login'));$('signup-btn').addEventListener('click',()=>remoteAuth('signup'));$('reset-btn').addEventListener('click',()=>remoteAuth('reset'));
+$('guest-btn').addEventListener('click',async()=>{if(requireLogin())return; if(supabaseClient){try{await supabaseClient.auth.signOut();}catch{}} currentUser=null;loadLocal();showApp();toast('Modo sem login: dados salvos somente neste aparelho.');});
+$('settings-save-btn').addEventListener('click',async()=>{const wasRequired=requireLogin(),nowRequired=$('require-login-toggle').checked;localStorage.setItem(REQUIRE_LOGIN_KEY,nowRequired?'true':'false');if(wasRequired&&!nowRequired){if(supabaseClient){try{await supabaseClient.auth.signOut();}catch{}}currentUser=null;loadLocal();toast('Login desativado. Os próximos dados serão locais neste aparelho.');}else if(!wasRequired&&nowRequired&&!currentUser){showAuth();toast('Login obrigatório ativado. Entre na sua conta para continuar.');return;}renderSettings();});
+$('logout-btn').addEventListener('click',async()=>{if(supabaseClient)await supabaseClient.auth.signOut();currentUser=null;state=initialState();showAuth();});
+$('add-task').addEventListener('click',()=>{closeForm($('task-form'));$('task-date').value=selectedDate;openForm('task-form');});
+$('task-form').addEventListener('submit',e=>{e.preventDefault();const id=$('task-id').value;const obj={id:id||uid(),name:$('task-name').value.trim(),date:$('task-date').value,time:$('task-time').value,category:$('task-category').value,priority:$('task-priority').value,done:id?(state.tasks.find(t=>t.id===id)?.done||false):false};if(id)state.tasks=state.tasks.map(t=>t.id===id?obj:t);else state.tasks.push(obj);saveState();closeForm($('task-form'));renderTasks();toast('Tarefa salva.');});
+function renderTasks(){const filter=$('task-filter-date').value, status=$('task-filter-status').value;let arr=[...state.tasks].filter(t=>(!filter||t.date===filter)&&(status==='all'||(status==='done'?t.done:!t.done))).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));$('task-list').innerHTML=arr.length?arr.map(t=>itemCard(escapeHTML(t.name),`${escapeHTML(fmtDate(t.date,{day:'2-digit',month:'short'}))}${t.time?' · '+escapeHTML(t.time):''} · ${escapeHTML(t.category)}`,`<span class="badge ${t.priority==='sim'?'priority':''}">${t.priority==='sim'?'★ Prioridade':'Sem prioridade'}</span>${t.done?'<span class="badge">Concluída</span>':''}`,`<button class="check-btn ${t.done?'checked':''}" data-task-done="${t.id}" aria-label="Alternar conclusão">${t.done?'✓':' '}</button><button class="tiny-btn" data-task-edit="${t.id}">Editar</button><button class="tiny-btn" data-task-delete="${t.id}">×</button>`)).join(''):empty('Nenhuma tarefa encontrada');}
+$('task-list').addEventListener('click',e=>{const done=e.target.closest('[data-task-done]')?.dataset.taskDone,edit=e.target.closest('[data-task-edit]')?.dataset.taskEdit,del=e.target.closest('[data-task-delete]')?.dataset.taskDelete;if(done){state.tasks=state.tasks.map(t=>t.id===done?{...t,done:!t.done}:t);saveState();renderTasks();}if(edit){const t=state.tasks.find(t=>t.id===edit);$('task-id').value=t.id;$('task-name').value=t.name;$('task-date').value=t.date;$('task-time').value=t.time;$('task-category').value=t.category;$('task-priority').value=t.priority;openForm('task-form');}if(del&&confirm('Excluir esta tarefa?')){state.tasks=state.tasks.filter(t=>t.id!==del);saveState();renderTasks();}});
+$('task-filter-date').value=selectedDate;$('task-filter-date').addEventListener('change',renderTasks);$('task-filter-status').addEventListener('change',renderTasks);
+
+$('add-habit').addEventListener('click',()=>{closeForm($('habit-form'));openForm('habit-form');});
+$('habit-frequency').addEventListener('change',()=>{$('habit-weekdays').classList.toggle('hidden',$('habit-frequency').value!=='weekdays');$('habit-dates-wrap').classList.toggle('hidden',$('habit-frequency').value!=='dates');});
+$('habit-form').addEventListener('submit',e=>{e.preventDefault();const frequency=$('habit-frequency').value;const days=[...document.querySelectorAll('#habit-weekdays input:checked')].map(x=>Number(x.value));const dates=$('habit-dates').value.split(',').map(x=>x.trim()).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x));if(frequency==='weekdays'&&!days.length){toast('Selecione pelo menos um dia da semana.');return;}if(frequency==='dates'&&!dates.length){toast('Informe ao menos uma data válida.');return;}state.habits.push({id:uid(),name:$('habit-name').value.trim(),frequency,days,dates});saveState();closeForm($('habit-form'));renderHabits();toast('Hábito salvo.');});
+$('habit-date').value=selectedDate;$('habit-date').addEventListener('change',()=>{selectedDate=$('habit-date').value||localISO(today);renderHabits();});
+function habitScheduled(h,date){if(h.frequency==='daily')return true;if(h.frequency==='weekdays')return (h.days||[]).includes(parseISO(date).getDay());return (h.dates||[]).includes(date);}
+function getHabitState(id,date){return state.habitLogs[`${id}|${date}`]||'unset';}
+const stateLabels={done:'Realizado',missed:'Não realizado',unset:'Ainda não registrado'};
+function renderHabits(){const date=$('habit-date').value||selectedDate;const arr=state.habits.filter(h=>habitScheduled(h,date));$('habit-list').innerHTML=arr.length?arr.map(h=>{const s=getHabitState(h.id,date);return itemCard(escapeHTML(h.name),escapeHTML(fmtDate(date)),`<span class="badge">${stateLabels[s]}</span>`,`<select class="habit-state" data-habit-state="${h.id}" aria-label="Estado do hábito"><option value="unset" ${s==='unset'?'selected':''}>Ainda não registrado</option><option value="done" ${s==='done'?'selected':''}>Realizado</option><option value="missed" ${s==='missed'?'selected':''}>Não realizado</option></select><button class="tiny-btn" data-habit-delete="${h.id}">×</button>`)}).join(''):empty('Nenhum hábito programado para esta data');}
+$('habit-list').addEventListener('change',e=>{const id=e.target.dataset.habitState;if(!id)return;const date=$('habit-date').value;state.habitLogs[`${id}|${date}`]=e.target.value;saveState();renderHabits();if(activeView==='calendar')renderCalendar();});
+$('habit-list').addEventListener('click',e=>{const id=e.target.closest('[data-habit-delete]')?.dataset.habitDelete;if(id&&confirm('Excluir este hábito e seu histórico?')){state.habits=state.habits.filter(h=>h.id!==id);Object.keys(state.habitLogs).filter(k=>k.startsWith(id+'|')).forEach(k=>delete state.habitLogs[k]);saveState();renderHabits();}});
+
+$('add-goal').addEventListener('click',()=>{closeForm($('goal-form'));openForm('goal-form');});
+$('goal-form').addEventListener('submit',e=>{e.preventDefault();const status=$('goal-status').value;const goal={id:uid(),name:$('goal-name').value.trim(),date:$('goal-date').value,status,history:[{status,at:new Date().toISOString()}]};state.goals.push(goal);saveState();closeForm($('goal-form'));renderGoals();toast('Meta salva.');});
+function renderGoals(){$('goal-list').innerHTML=state.goals.length?state.goals.map(g=>itemCard(escapeHTML(g.name),`Prazo: ${escapeHTML(fmtDate(g.date,{day:'2-digit',month:'short',year:'numeric'}))}`,`<select class="goal-status" data-goal-status="${g.id}">${['Não iniciada','Em andamento','Realizada'].map(s=>`<option ${g.status===s?'selected':''}>${s}</option>`).join('')}</select><div class="history"><strong>Histórico</strong>${(g.history||[]).slice().reverse().map(h=>`<p>${escapeHTML(new Date(h.at).toLocaleDateString('pt-BR'))} · ${escapeHTML(h.status)}</p>`).join('')}</div>`,`<button class="tiny-btn" data-goal-delete="${g.id}">×</button>`)).join(''):empty('Nenhuma meta cadastrada');}
+$('goal-list').addEventListener('change',e=>{const id=e.target.dataset.goalStatus;if(!id)return;const g=state.goals.find(g=>g.id===id);if(g&&g.status!==e.target.value){g.status=e.target.value;g.history.push({status:g.status,at:new Date().toISOString()});saveState();renderGoals();}});
+$('goal-list').addEventListener('click',e=>{const id=e.target.closest('[data-goal-delete]')?.dataset.goalDelete;if(id&&confirm('Excluir esta meta e seu histórico?')){state.goals=state.goals.filter(g=>g.id!==id);saveState();renderGoals();}});
+
+$('add-list').addEventListener('click',()=>{closeForm($('list-form'));openForm('list-form');});
+$('list-form').addEventListener('submit',e=>{e.preventDefault();state.lists.push({id:uid(),name:$('list-name').value.trim(),items:[]});saveState();closeForm($('list-form'));renderLists();toast('Lista criada.');});
+function renderLists(){$('list-list').innerHTML=state.lists.length?state.lists.map(l=>`<article class="item-card"><div class="item-main"><div class="item-title">${escapeHTML(l.name)}</div><div class="item-meta">${l.items.filter(i=>i.done).length}/${l.items.length} itens concluídos</div><div>${l.items.map(i=>`<div class="list-item-row"><input type="checkbox" data-list-item-done="${l.id}|${i.id}" ${i.done?'checked':''} aria-label="Concluir item"><label>${escapeHTML(i.name)}</label><button class="tiny-btn" data-list-item-delete="${l.id}|${i.id}">×</button></div>`).join('')}<form class="list-item-add" data-list-add="${l.id}"><div class="list-item-row"><input name="item" type="text" required maxlength="140" placeholder="Adicionar item..."><button class="tiny-btn">＋</button></div></form></div></div><div class="item-actions"><button class="tiny-btn" data-list-delete="${l.id}">Excluir lista</button></div></article>`).join(''):empty('Nenhuma lista criada');}
+$('list-list').addEventListener('submit',e=>{const form=e.target.closest('[data-list-add]');if(!form)return;e.preventDefault();const l=state.lists.find(l=>l.id===form.dataset.listAdd),name=new FormData(form).get('item').trim();if(name){l.items.push({id:uid(),name,done:false});saveState();renderLists();}});
+$('list-list').addEventListener('change',e=>{const key=e.target.dataset.listItemDone;if(!key)return;const [lid,iid]=key.split('|'),l=state.lists.find(l=>l.id===lid),item=l?.items.find(i=>i.id===iid);if(item){item.done=e.target.checked;saveState();renderLists();}});
+$('list-list').addEventListener('click',e=>{const delList=e.target.closest('[data-list-delete]')?.dataset.listDelete,delItem=e.target.closest('[data-list-item-delete]')?.dataset.listItemDelete;if(delList&&confirm('Excluir esta lista?')){state.lists=state.lists.filter(l=>l.id!==delList);saveState();renderLists();}if(delItem){const [lid,iid]=delItem.split('|'),l=state.lists.find(l=>l.id===lid);l.items=l.items.filter(i=>i.id!==iid);saveState();renderLists();}});
+
+$('add-transaction').addEventListener('click',()=>{closeForm($('finance-form'));$('finance-date').value=selectedDate;openForm('finance-form');});
+$('finance-form').addEventListener('submit',e=>{e.preventDefault();state.transactions.push({id:uid(),type:$('finance-type').value,description:$('finance-description').value.trim(),amount:Number($('finance-amount').value),date:$('finance-date').value,category:$('finance-category').value.trim()});saveState();closeForm($('finance-form'));renderFinance();toast('Movimentação salva.');});
+$('finance-month').value=monthISO(today);$('finance-month').addEventListener('change',renderFinance);
+function renderFinance(){const month=$('finance-month').value||monthISO(today),arr=state.transactions.filter(t=>t.date.startsWith(month));const income=arr.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0),expense=arr.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0);$('finance-income').textContent=money(income);$('finance-expense').textContent=money(expense);$('finance-balance').textContent=money(income-expense);$('finance-list').innerHTML=arr.length?arr.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(t=>itemCard(escapeHTML(t.description),`${escapeHTML(fmtDate(t.date,{day:'2-digit',month:'short'}))} · ${escapeHTML(t.category||'Sem categoria')}`,`<span class="badge">${t.type==='income'?'Receita':'Despesa'}</span>`,`<strong>${money(t.amount)}</strong><button class="tiny-btn" data-transaction-delete="${t.id}">×</button>`)).join(''):empty('Nenhuma movimentação neste mês');}
+$('finance-list').addEventListener('click',e=>{const id=e.target.closest('[data-transaction-delete]')?.dataset.transactionDelete;if(id&&confirm('Excluir esta movimentação?')){state.transactions=state.transactions.filter(t=>t.id!==id);saveState();renderFinance();}});
+
+function scheduledForDay(date){return state.habits.filter(h=>habitScheduled(h,date));}
+function progressForDay(date){const scheduled=scheduledForDay(date);if(!scheduled.length)return {ratio:null,done:0,total:0};const done=scheduled.filter(h=>getHabitState(h.id,date)==='done').length;return {ratio:done/scheduled.length,done,total:scheduled.length};}
+function renderCalendar(){const y=calendarMonth.getFullYear(),m=calendarMonth.getMonth();$('month-label').textContent=calendarMonth.toLocaleDateString('pt-BR',{month:'long',year:'numeric'});const first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();let html=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'].map(d=>`<div class="weekday">${d}</div>`).join('');for(let i=0;i<offset;i++)html+='<div></div>';for(let d=1;d<=days;d++){const date=localISO(new Date(y,m,d)),p=progressForDay(date),selected=date===selectedDate,todayClass=date===localISO(today)?'today':'';let dot='';if(p.ratio!==null){const pct=Math.round(p.ratio*100);dot=`<span class="dot ${pct===100?'full':pct>0?'partial':''}" style="--progress:${pct}%"></span>`;}else dot='<span class="dot"></span>';html+=`<button class="calendar-day ${selected?'selected':''} ${todayClass}" data-calendar-date="${date}"><span>${d}</span>${dot}</button>`;}$('calendar-grid').innerHTML=html;renderDaily();}
+$('calendar-grid').addEventListener('click',e=>{const date=e.target.closest('[data-calendar-date]')?.dataset.calendarDate;if(date){selectedDate=date;$('task-filter-date').value=date;$('habit-date').value=date;renderCalendar();}});
+$('month-prev').addEventListener('click',()=>{calendarMonth=new Date(calendarMonth.getFullYear(),calendarMonth.getMonth()-1,1);renderCalendar();});
+$('month-next').addEventListener('click',()=>{calendarMonth=new Date(calendarMonth.getFullYear(),calendarMonth.getMonth()+1,1);renderCalendar();});
+$('day-prev').addEventListener('click',()=>{selectedDate=localISO(new Date(parseISO(selectedDate).getTime()-86400000));calendarMonth=new Date(parseISO(selectedDate).getFullYear(),parseISO(selectedDate).getMonth(),1);renderCalendar();});
+$('day-next').addEventListener('click',()=>{const d=parseISO(selectedDate);d.setDate(d.getDate()+1);selectedDate=localISO(d);calendarMonth=new Date(d.getFullYear(),d.getMonth(),1);renderCalendar();});
+function renderDaily(){ $('selected-date-label').textContent=fmtDate(selectedDate);const tasks=state.tasks.filter(t=>t.date===selectedDate).sort((a,b)=>(a.time||'').localeCompare(b.time||'')),habits=scheduledForDay(selectedDate),goals=state.goals.filter(g=>g.date===selectedDate);let html='';html+='<div class="daily-section"><h4>Tarefas e compromissos</h4>';html+=tasks.length?tasks.map(t=>`<div class="daily-row"><button class="check-btn ${t.done?'checked':''}" data-daily-task="${t.id}">${t.done?'✓':''}</button><div class="grow">${escapeHTML(t.name)}${t.priority==='sim'?'<span class="badge priority">★ Prioridade</span>':''}<small>${escapeHTML(t.time||'Sem horário')} · ${escapeHTML(t.category)}</small></div></div>`).join(''):'<p class="small muted">Nenhuma tarefa nesta data.</p>';html+='</div><div class="daily-section"><h4>Hábitos</h4>';html+=habits.length?habits.map(h=>`<div class="daily-row"><div class="grow">${escapeHTML(h.name)}<small>${escapeHTML(stateLabels[getHabitState(h.id,selectedDate)])}</small></div><select class="habit-state" data-daily-habit="${h.id}"><option value="unset" ${getHabitState(h.id,selectedDate)==='unset'?'selected':''}>Ainda não registrado</option><option value="done" ${getHabitState(h.id,selectedDate)==='done'?'selected':''}>Realizado</option><option value="missed" ${getHabitState(h.id,selectedDate)==='missed'?'selected':''}>Não realizado</option></select></div>`).join(''):'<p class="small muted">Nenhum hábito programado nesta data.</p>';html+='</div><div class="daily-section"><h4>Metas com prazo nesta data</h4>';html+=goals.length?goals.map(g=>`<div class="daily-row"><div class="grow">${escapeHTML(g.name)}<small>${escapeHTML(g.status)}</small></div></div>`).join(''):'<p class="small muted">Nenhuma meta com prazo nesta data.</p>';html+='</div>';const monthTasks=state.tasks.filter(t=>t.date===selectedDate).length;$('daily-content').innerHTML=html;}
+$('daily-content').addEventListener('change',e=>{const hid=e.target.dataset.dailyHabit;if(hid){state.habitLogs[`${hid}|${selectedDate}`]=e.target.value;saveState();renderCalendar();} });
+$('daily-content').addEventListener('click',e=>{const id=e.target.closest('[data-daily-task]')?.dataset.dailyTask;if(id){state.tasks=state.tasks.map(t=>t.id===id?{...t,done:!t.done}:t);saveState();renderCalendar();}});
+async function boot(){
+ if('serviceWorker' in navigator && location.protocol!=='file:'){try{await navigator.serviceWorker.register('./service-worker.js');}catch(e){console.warn('Service worker não registrado',e);}}
+ if(requireLogin()){
+  if(supabaseClient){
+   try{
+    const {data,error}=await supabaseClient.auth.getSession();
+    if(!error && data?.session?.user){currentUser=data.session.user;await loadRemote();showApp();return;}
+   }catch(e){console.warn('Não foi possível recuperar a sessão',e);}
+  }
+  currentUser=null;showAuth();return;
+ }
+ if(supabaseClient){try{await supabaseClient.auth.signOut();}catch{}}
+ currentUser=null;loadLocal();showApp();
+}
+boot();
+
+</script>
+</body>
+</html>
