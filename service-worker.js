@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'meu-planner-v2';
+const CACHE_NAME = 'meu-planner-v3';
 
 const APP_SHELL = [
   './',
