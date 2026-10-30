@@ -1,11 +1,9 @@
 
-const CACHE_NAME = 'meu-planner-v3';
+const CACHE_NAME = 'meu-planner-v4';
 
 const APP_SHELL = [
   './',
   './index.html',
-  './styles.css',
-  './app.js',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
@@ -13,6 +11,7 @@ const APP_SHELL = [
   './favicon-32.png'
 ];
 
+// Instala e armazena os arquivos essenciais
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -21,6 +20,7 @@ self.addEventListener('install', event => {
   );
 });
 
+// Ativa a nova versão e remove caches antigos
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
@@ -35,32 +35,41 @@ self.addEventListener('activate', event => {
   );
 });
 
+// Prioriza a versão mais recente disponível na internet
+// e utiliza o cache quando estiver sem conexão.
 self.addEventListener('fetch', event => {
+  const request = event.request;
+
   if (
-    event.request.method !== 'GET' ||
-    new URL(event.request.url).origin !== self.location.origin
+    request.method !== 'GET' ||
+    new URL(request.url).origin !== self.location.origin
   ) {
     return;
   }
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) {
-        return cached;
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const cached = await cache.match(request);
+
+      try {
+        const response = await fetch(request);
+
+        if (response.ok && response.type === 'basic') {
+          await cache.put(request, response.clone());
+        }
+
+        return response;
+      } catch (error) {
+        if (cached) return cached;
+
+        if (request.mode === 'navigate') {
+          return await cache.match('./index.html') ||
+            Response.error();
+        }
+
+        return Response.error();
       }
-
-      return fetch(event.request)
-        .then(response => {
-          if (response.ok) {
-            const copy = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, copy));
-          }
-
-          return response;
-        })
-        .catch(() => caches.match('./index.html'));
-    })
+    })()
   );
 });
